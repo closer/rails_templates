@@ -55,7 +55,7 @@ if yes?('Markdown ?')
   gem 'redcarpet'
 end
 
-if yeas?('Paperclip ?')
+if yes?('Paperclip ?')
   # Image Upload
   gem 'paperclip'
 end
@@ -80,16 +80,18 @@ end
 
 gem_group :development, :test do
 
-  # Console Debugger
-  gem 'pry'
-  gem 'pry-rails'
-  gem 'pry-doc'
-  gem 'pry-stack_explorer'
-  gem 'pry-byebug'
-  gem 'hirb'
-  gem 'hirb-unicode'
-  gem 'tapp'
-  gem 'awesome_print'
+  if yes?('Pry ?')
+    # Console Debugger
+    gem 'pry'
+    gem 'pry-rails'
+    gem 'pry-doc'
+    gem 'pry-stack_explorer'
+    gem 'pry-byebug'
+    gem 'hirb'
+    gem 'hirb-unicode'
+    gem 'tapp'
+    gem 'awesome_print'
+  end
 
   # Browser Debugger
   gem 'better_errors'
@@ -100,18 +102,24 @@ gem_group :development, :test do
   gem 'rack-mini-profiler'
   gem 'xray-rails'
 
-  # Test Framework
-  gem 'minitest-rails'
-  gem 'minitest-colorize'
-  gem 'factory_girl_rails', '~> 4.0'
-  gem 'webmock'
-  gem 'database_cleaner'
+  if yes?('Minitest ?')
+    # Test Framework
+    gem 'minitest-rails'
+    gem 'minitest-colorize'
+    gem 'factory_girl_rails', '~> 4.0'
+    gem 'webmock'
+    gem 'database_cleaner'
+  end
 
-  # Syntax
-  gem 'rubocop'
+  if yes?('Rubocop ?')
+    # Syntax
+    gem 'rubocop'
+  end
 
-  # Coverage
-  gem 'simplecov', require: false
+  if yes?('SimpleCov ?')
+    # Coverage
+    gem 'simplecov', require: false
+  end
 end
 
 # Use unicorn as the app server
