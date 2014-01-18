@@ -50,7 +50,7 @@ if yes?('FriendlyId ?')
   gem 'friendly_id', '~> 5.0.0'
 end
 
-if yeas?('Markdown ?')
+if yes?('Markdown ?')
   # Markdown
   gem 'redcarpet'
 end
